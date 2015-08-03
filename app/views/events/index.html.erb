@@ -20,20 +20,38 @@
                 <div class="clearfix"></div>
                 <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small>
             </div>
-            <div class="space"></div>
-            <div class="row">
-            	<% @events.each do |event| %>
-                <div class="col-md-3 col-sm-6 service">
-                    <i class="fa fa-desktop"></i>
-                    <h4><strong><h3><%= link_to event.name, event_path(event) %></h3></strong></h4>
-                    <h4><%= event.description %></h4>
-                    <h4><%= event.user.full_name %></h4>
-                    <h4><%= event.description %></h4>
 
-                    <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+        <div class="container">
+            <div class="row">
+            <% @events.each do |event| %>
+                <div class="col-md-6">
+                    <img src="img/02.png" class="img-responsive">
+                </div>
+                <div class="col-md-6">
+                    <div class="about-text">
+                        <div class="section-title">
+                            <h4>About us</h4>
+                            <h2><strong><%= link_to event.name, event_path(event) %></strong></h2>
+                            <hr>
+                            <div class="clearfix"></div>
+                        </div>
+                        <p class="intro">We love building and rebuilding brands through our  specific skills. Using colour, fonts, and illustration, we brand companies in a way they will never forget.</p>
+                        <ul class="about-list">
+                            <li>
+                                <span class="fa fa-dot-circle-o"></span>
+                                <strong>Description</strong> - <em><%= event.description %></em>
+                            </li>
+                            <li>
+                                <span class="fa fa-dot-circle-o"></span>
+                                <strong>Organization</strong> - <em><%= event.user.full_name %></em>
+                            </li>
+                            <li>
+                                <span class="fa fa-dot-circle-o"></span>
+                                <strong>Location</strong> - <em>Satisfied clients thanks to our experience</em>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <% end %>
             </div>
         </div>
-    </div>
-

@@ -1,0 +1,14 @@
+<h1>Events:</h1>
+
+<% @events.each do |event| %>
+	<% if event.public || event.user == current_user%>
+		<tr>
+			<td><%= event.user.username %></td>
+			<td><img src="<%= photo.image %>"></td>
+			<br />
+			<td><%= photo.caption %></td>
+			<td><%= link_to "View", photo_path(photo) %></td>
+		</tr>
+		<%= render "comments/form" %>
+	<% end %>
+<% end %>

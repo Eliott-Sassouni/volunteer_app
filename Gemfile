@@ -34,6 +34,8 @@ gem 'devise'
 
 # Bootstrap
 gem 'twitter-bootstrap-rails'
+# Glyphicons
+gem 'bootstrap-glyphicons'
 
 
 

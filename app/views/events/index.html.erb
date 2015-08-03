@@ -1,15 +1,39 @@
+ <!-- Services Section
+    ==========================================-->
 <h1>Events:</h1>
 
-<% if current_user.organization %>
-	<%= link_to 'Add a new event', new_event_path(@event) %>
+<h2> You made it to the index page </h2>
+
+<% if user_signed_in? %>
+	<% if current_user.organization %>
+		<%= link_to 'Add a new event', new_event_path(@event) %>
+	<% end %>
 <% end %>
 
+    <div id="tf-services" class="text-center">
+        <div class="container">
+            <div class="section-title center">
+                <h2>Upcoming <strong>events</strong></h2>
+                <div class="line">
+                    <hr>
+                </div>
+                <div class="clearfix"></div>
+                <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small>
+            </div>
+            <div class="space"></div>
+            <div class="row">
+            	<% @events.each do |event| %>
+                <div class="col-md-3 col-sm-6 service">
+                    <i class="fa fa-desktop"></i>
+                    <h4><strong><h3><%= link_to event.name, event_path(event) %></h3></strong></h4>
+                    <h4><%= event.description %></h4>
+                    <h4><%= event.user.full_name %></h4>
+                    <h4><%= event.description %></h4>
 
-<% @events.each do |event| %>
-	<tr>
-		<td><%= event.user.full_name %></td>
-		<td><%= event.name %></td>
-		<td><%= event.description %></td>
-		<td><%= link_to "View", event_path(event) %></td>
-	</tr>
-<% end %>
+                    <p>The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+

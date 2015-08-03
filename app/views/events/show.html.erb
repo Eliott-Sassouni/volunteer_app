@@ -5,8 +5,26 @@
 
 <p><%= @event.description %></p>
 
+<strong>Comment:</strong>
+<% @event.comments.each do |comment| %>
+	<p>
+    	<%= comment.comment %> | <%= comment.commenter %>
+    	<% if (current_user.full_name == comment.commenter) %>
+    		 | <%= link_to 'Delete', event_comment_path(@event, comment),
+	            method: :delete,
+	            data: { confirm: 'Are you sure?' } %>
+		<% end %>
+	</p>
+<% end %>
+
+<h2>Add a comment:</h2>
+
+<%= render "comments/form" %>
 
 <%= link_to 'back', events_path %>
 <% if @event.user == current_user %>
 	| <%= link_to 'edit', edit_event_path(@event) %>
+	| <%= link_to 'delete', event_path(@event),
+	            method: :delete,
+	            data: { confirm: 'Are you sure?' } %>
 <% end %>

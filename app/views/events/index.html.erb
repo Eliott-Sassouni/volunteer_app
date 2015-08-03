@@ -25,7 +25,7 @@
             <div class="row">
             <% @events.each do |event| %>
                 <div class="col-md-6">
-                    <img src="img/02.png" class="img-responsive">
+                    <img src="<%= event.photo %>" class="img-responsive">
                 </div>
                 <div class="col-md-6">
                     <div class="about-text">
@@ -35,7 +35,7 @@
                             <hr>
                             <div class="clearfix"></div>
                         </div>
-                        <p class="intro">We love building and rebuilding brands through our  specific skills. Using colour, fonts, and illustration, we brand companies in a way they will never forget.</p>
+                        <p class="intro"><%= event.description %>We love building and rebuilding brands through our  specific skills. Using colour, fonts, and illustration, we brand companies in a way they will never forget.</p>
                         <ul class="about-list">
                             <li>
                                 <span class="fa fa-dot-circle-o"></span>

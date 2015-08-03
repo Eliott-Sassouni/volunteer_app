@@ -1,14 +1,15 @@
 <h1>Events:</h1>
 
+<% if current_user.organization %>
+	<%= link_to 'Add a new event', new_event_path(@event) %>
+<% end %>
+
+
 <% @events.each do |event| %>
-	<% if event.public || event.user == current_user%>
-		<tr>
-			<td><%= event.user.username %></td>
-			<td><img src="<%= photo.image %>"></td>
-			<br />
-			<td><%= photo.caption %></td>
-			<td><%= link_to "View", photo_path(photo) %></td>
-		</tr>
-		<%= render "comments/form" %>
-	<% end %>
+	<tr>
+		<td><%= event.user.full_name %></td>
+		<td><%= event.name %></td>
+		<td><%= event.description %></td>
+		<td><%= link_to "View", event_path(event) %></td>
+	</tr>
 <% end %>

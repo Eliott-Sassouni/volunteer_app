@@ -36,7 +36,8 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 # Glyphicons
 gem 'bootstrap-glyphicons'
-
+# Font awesome
+gem 'font-awesome-rails'
 gem 'puma'
 
 

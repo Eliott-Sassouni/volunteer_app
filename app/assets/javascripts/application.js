@@ -13,5 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require modernizr.custom
+//= require SmoothScroll
+//= require jquery.isotope
+//= require owl.carousel
+//= require main
 //= require turbolinks
 //= require_tree .

@@ -13,9 +13,11 @@
                         <small><em>Sign up below so that we could send you spam emails!</em></small>            
                     </div>
 
+                    <div>asdf<%= devise_error_messages! %></div>
+
                     <form>
                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                    <%= devise_error_messages! %>
+                    
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -66,8 +68,9 @@
                             <label for="exampleInputEmail1">Message</label>
                             <textarea class="form-control" rows="3"></textarea>
                         </div>
-                        
-                        <button type="submit"<%= f.submit "Sign up", class: "btn tf-btn btn-default" %>> </button>
+                        <%= f.submit "Sign up", class: "btn tf-btn btn-default" %>
+
+                        <!-- <button type="submit"> </button> -->
                         <% end %>
                     </form>
 

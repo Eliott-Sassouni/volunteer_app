@@ -1,57 +1,110 @@
+ <head>
+ <style type="text/css">
+
+.events_image {
+
+    padding-top: 7.5%;
+}
+.whatever {
+    background-color: #F6F6F6;
+}
+.events_title {
+    padding-top: 10%;
+
+    background-color: rgba(0,0,0,.1);
+
+    /*background: url('../img/03.jpg');*/
+}
+.event_backgroud {
+    background-color: rgba(0,0,0,.1)
+}
+.event_page_title {
+
+    font-size: 
+}
+/*.event_info {
+    margin: 
+}*/
+ </style>    
+
+ </head>
+
  <!-- Services Section
     ==========================================-->
 <!-- <h1>Events:</h1>
 
 <h2> You made it to the index page </h2> -->
 
-<% if user_signed_in? %>
-	<% if current_user.organization %>
-		<%= link_to 'Add a new event', new_event_path(@event) %>
-	<% end %>
-<% end %>
+ <div id="tf-menachem" class="text-center whatever">
+    <div class="overlay">
+    <div class="container events_title">
 
-    <div id="tf-services" class="text-center">
-        <div class="container">
-            <div class="section-title center">
-                <h2>Upcoming <strong>events</strong></h2>
-                <div class="line">
+        <div class="section-title center event_page_title">
+            <h2>Upcoming <strong>events</strong></h2>
+            <div class="line">
+                <hr>
+            </div>
+            <div class="clearfix"></div>
+            <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small>
+        </div>
+    </div>
+            <div class="row event_line">
+                <div class="col-md-6 col-lg-6 col-md-offset-3">
                     <hr>
                 </div>
-                <div class="clearfix"></div>
-                <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small>
-            </div>
+        </div>
 
-        <div class="container">
-            <div class="row">
-            <% @events.each do |event| %>
-                <div class="col-md-6">
+    <div class="container">
+        
+        <% @events.each do |event| %>
+
+            <div class="row event_backgroud">
+                <div class="col-md-6 col-lg-6 events_image">
                     <img src="<%= event.photo %>" class="img-responsive">
                 </div>
-                <div class="col-md-6">
-                    <div class="about-text">
-                        <div class="section-title">
-                            <h4>About us</h4>
+                <div class="col-md-6 col-lg-6">
+                    <div class="about-text event_info">
+                        <div class="section-title center">
+                            <h4>Event</h4>
                             <h2><strong><%= link_to event.name, event_path(event) %></strong></h2>
-                            <hr>
+                            <div class="line center">
+                                <hr>
+                                </div>
                             <div class="clearfix"></div>
                         </div>
-                        <p class="intro"><%= event.description %>We love building and rebuilding brands through our  specific skills. Using colour, fonts, and illustration, we brand companies in a way they will never forget.</p>
-                        <ul class="about-list">
-                            <li>
-                                <span class="fa fa-dot-circle-o"></span>
-                                <strong>Description</strong> - <em><%= event.description %></em>
-                            </li>
-                            <li>
-                                <span class="fa fa-dot-circle-o"></span>
-                                <strong>Organization</strong> - <em><%= event.user.full_name %></em>
-                            </li>
-                            <li>
-                                <span class="fa fa-dot-circle-o"></span>
-                                <strong>Location</strong> - <em>Satisfied clients thanks to our experience</em>
-                            </li>
-                        </ul>
+                            <p class="intro"><%= event.description %>We love building and rebuilding brands through our  specific skills. Using colour, fonts, and illustration, we brand companies in a way they will never forget.</p>
+                            <ul class="about-list">
+                                <li>
+                                    <span class="fa fa-dot-circle-o"></span>
+                                    <strong>Description</strong> - <em><%= event.description %></em>
+                                </li>
+                                <li>
+                                    <span class="fa fa-dot-circle-o"></span>
+                                    <strong>Organization</strong> - <em><%= event.user.full_name %></em>
+                                </li>
+                                <li>
+                                    <span class="fa fa-dot-circle-o"></span>
+                                    <strong>Location</strong> - <em>Satisfied clients thanks to our experience</em>
+                                </li>
+                            </ul>
                     </div>
                 </div>
-                <% end %>
-            </div> <br /><br />
+            </div>
+        <div class="row event_line">
+                <div class="col-md-6 col-lg-6 col-md-offset-3">
+                    <hr>
+                </div>
         </div>
+        
+        <% end %>
+
+    </div>
+    <% if user_signed_in? %>
+    <% if current_user.organization %>
+        <strong><%= link_to 'Add a new event', new_event_path(@event) %></strong>
+    <% end %>
+<% end %>
+</div>
+
+
+        

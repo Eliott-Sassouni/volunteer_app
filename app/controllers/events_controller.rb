@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+	before_action :verify_organization, :only => [:edit, :update, :destroy]
 	def index
 		@events = Event.all.order(created_at: :desc)
 		@user = current_user
@@ -20,14 +21,10 @@ class EventsController < ApplicationController
 
 	def edit
 		@event = Event.find(params[:id])
-
-		verify_organization
 	end
 
 	def update
 		@event = Event.find(params[:id])
-
-		verify_organization
 
 		if @event.update(event_params)
 			redirect_to event_path(@event)
@@ -42,8 +39,11 @@ class EventsController < ApplicationController
 
 	def destroy
 		@event = Event.find(params[:id])
+		@comments = @event.comments
 
-		verify_organization
+		if @comments
+			@comments.destroy
+		end
 
 		@event.destroy
 		redirect_to events_path
@@ -51,7 +51,7 @@ class EventsController < ApplicationController
 
 private
 	def verify_organization
-		if @event.user != current_user
+		if Event.find(params[:id]).user != current_user
 			redirect_to events_path
 		end
 	end

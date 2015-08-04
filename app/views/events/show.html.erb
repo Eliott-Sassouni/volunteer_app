@@ -9,7 +9,7 @@
 <% @event.comments.each do |comment| %>
 	<p>
     	<%= comment.comment %> | <%= comment.commenter %>
-    	<% if (current_user.full_name == comment.commenter) %>
+    	<% if (current_user.full_name == comment.commenter) || (current_user.id == @event.user_id) %>
     		 | <%= link_to 'Delete', event_comment_path(@event, comment),
 	            method: :delete,
 	            data: { confirm: 'Are you sure?' } %>

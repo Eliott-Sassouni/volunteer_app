@@ -37,9 +37,14 @@
 	transition: height 500ms ease-in-out;
 }
 	
-.owl-carousel .owl-item{
+#clients.owl-carousel .owl-item{
 	float: left;
 }
+
+.owl-carousel .owl-item {
+	display: inline-block;
+}
+
 .owl-controls .owl-page,
 .owl-controls .owl-buttons div{
 	cursor: pointer;

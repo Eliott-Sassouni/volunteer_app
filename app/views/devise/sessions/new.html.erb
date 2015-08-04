@@ -13,7 +13,6 @@
                         <small><em>Sign in below so that we could send you spam emails!</em></small>            
                     </div>
 
-                    <form>
                     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                     <%= devise_error_messages! %>
 
@@ -47,7 +46,6 @@
                         
                         <%= f.submit "Log in" %>
                         <% end %>
-                    </form>
 
                     <%= render "devise/shared/links" %>
 

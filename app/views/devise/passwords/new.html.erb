@@ -13,7 +13,6 @@
 	                        <small><em>Enter your email address</em></small>            
 	                    </div>
 	                    
-	                    <form>
 
                     		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   							<%= devise_error_messages! %>
@@ -39,7 +38,7 @@
 	                				<button type="submit"<%= f.submit "Send me reset password instructions", class: "btn tf-btn btn-default" %>> </button>
 	                			<!-- </div> -->
                         		<% end %>
-                 		</form>
+                        		
                     	<div class="row"> <%= render "devise/shared/links" %> </div>
                     	<div class="row"> <%= link_to 'Home', root_path %> </div>
 

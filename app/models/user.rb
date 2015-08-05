@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_one :profile
   has_many :events
   has_many :comments
-  validates :full_name, :email, :age, presence: true
+  validates :email, presence: true
+  accepts_nested_attributes_for :profile
 end

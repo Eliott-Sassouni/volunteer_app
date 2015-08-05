@@ -3,8 +3,8 @@ class CommentsController < ApplicationController
 	def create
 		@event = Event.find(params[:event_id])
 		@comment = @event.comments.build(comment_params)
-		@comment.commenter = current_user.full_name
-		@comment.user_id = current_user.id
+		@comment.commenter = current_user.profile.full_name
+		@comment.user_id = current_user.profile.id
 		@comment.save
 		redirect_to event_path(@event)
 	end

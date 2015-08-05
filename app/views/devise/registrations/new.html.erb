@@ -1,26 +1,12 @@
 <h2>Sign up</h2>
 
+<% resource.build_profile %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :full_name %><br />
-    <%= f.text_field :full_name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :age %><br />
-    <%= f.text_field :age, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :organization, "Are you a volunteer or an organization?" %><br />
-    <%= f.select :organization, [['Volunteer', false], ['Organization', true]] %>
   </div>
 
   <div class="field">
@@ -35,6 +21,22 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+
+  <div class="field">
+    <%= f.label :organization, "Are you a volunteer or an organization?" %><br />
+    <%= f.select :organization, [['Volunteer', false], ['Organization', true]] %>
+  </div>
+
+  <%= f.fields_for :profile do |profile_form| %>
+    <div class="field">
+      <%= profile_form.label :full_name %><br />
+      <%= profile_form.text_field :full_name %>
+    </div>
+    <div class="field">
+      <%= profile_form.label :age %><br />
+      <%= profile_form.text_field :age %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

@@ -4,5 +4,6 @@
 	<% if profile.user.organization %>
 		<h2><%= link_to profile.full_name, profile_path(profile) %></h2>
 		<h2><%= profile.user.email %></h2>
+		<p><%= profile.description %></p>
 	<% end %>
 <% end %>

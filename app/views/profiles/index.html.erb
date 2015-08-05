@@ -1,9 +1,21 @@
-<h1>Meet the Organizations</h1>
+<div id="tf-contact" class="text-center">
+        <div class="container">
 
-<% @profiles.each do |profile| %>
-	<% if profile.user.organization %>
-		<h2><%= link_to profile.full_name, profile_path(profile) %></h2>
-		<h2><%= profile.user.email %></h2>
-		<p><%= profile.description %></p>
-	<% end %>
-<% end %>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+
+                    <div class="section-title center">
+						<h1>Meet the Organizations</h1><br /><br />
+
+						<% @profiles.each do |profile| %>
+							<% if profile.user.organization %>
+								<h2><%= link_to profile.full_name, profile_path(profile) %></h2><br />
+								<h2><%= profile.user.email %></h2><br />
+								<p><%= profile.description %></p><br />
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

@@ -1,11 +1,27 @@
-<h1><%= @profile.full_name %></h1>
-<h3><%= @profile.user.email %></h3>
+<div id="tf-contact" class="text-center">
+        <div class="container">
 
-<img src="<%= @profile.photo %>">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
 
-<p><%= @profile.description %></p>
+                    <div class="section-title center">
 
-<%= link_to 'back', profiles_path %>
-<% if @profile.user == current_user %>
-	| <%= link_to 'edit', edit_profile_path(@profile) %>
-<% end %>
+
+					<h1><%= @profile.full_name %></h1>
+					<h3><%= @profile.user.email %></h3>
+
+					<img src="<%= @profile.photo %>">
+
+					<p><%= @profile.description %></p>
+
+					<%= link_to 'back', profiles_path %>
+					<% if @profile.user == current_user %>
+						| <%= link_to 'edit', edit_profile_path(@profile) %>
+					<% end %>
+
+					</div>
+				</div>
+			</div>
+			
+		</div>
+</div>

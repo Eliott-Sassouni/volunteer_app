@@ -65,18 +65,16 @@
                                     <%= profile_form.text_field :full_name, autofocus: true, class: "form-control" %>
                                 </div>
                             </div>
-                          <% end %>
                         </div>
                         <div class="row">
-                          <%= f.fields_for :profile do |profile_form| %>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <%= profile_form.label :description, "Tell us about you:" %><br />
                                     <%= profile_form.text_area :description, autofocus: true, class: "form-control" %>
                                 </div>
                             </div>
-                          <% end %>
                         </div>
+                        <% end %>
 
                         <div class="row">
                           <div class="col-md-12">

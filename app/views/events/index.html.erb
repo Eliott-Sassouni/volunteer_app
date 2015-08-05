@@ -1,10 +1,5 @@
 <head>
 <style type="text/css">
-
-.events_image {
-
-    padding-top: 7.5%;
-}
 .whatever {
     background-color: #F6F6F6;
 }
@@ -15,8 +10,9 @@
 
     /*background: url('../img/03.jpg');*/
 }
-.event_backgroud {
-    background-color: rgba(0,0,0,.1)
+.event_background {
+    background-color: rgba(0,0,0,.1);
+    height: 400px;
 }
 .event_page_title {
 
@@ -39,11 +35,11 @@
     <div class="overlay">
         <div class="container events_title">
 
-            <div class="section-title center event_page_title">
+            <div class="section-title center event-info">
                 <h2>Upcoming <strong>events</strong></h2>
                 <div class="line"><hr></div>
                 <div class="clearfix"></div>
-                <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small> <br /><br />
+                <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small> <br /><br />
            
                     <% if user_signed_in? %>
                         <% if current_user.organization %>
@@ -62,13 +58,13 @@
             
             <% @events.each do |event| %>
 
-                <div class="row event_backgroud">
+                <div class="row event_background">
                     <div class="col-md-6 col-lg-6 events_image">
                         <img src="<%= event.photo %>" class="img-responsive">
                     </div>
-                    <div class="col-md-6 col-lg-6">
-                        <div class="about-text event_info">
-                            <div class="section-title center">
+                    <div class="col-md-6 col-lg-6 event_info">
+                        <div class="about-text">
+                            <div class="section-title center event-title">
                                 <h4>Event</h4>
                                 <h2><strong><%= link_to event.name, event_path(event) %></strong></h2>
                                 <div class="line center">
@@ -88,14 +84,14 @@
                                     </li>
                                     <li>
                                         <span class="fa fa-dot-circle-o"></span>
-                                        <strong>Location</strong> - <em>Satisfied clients thanks to our experience</em>
+                                        <strong>Location</strong> - <em><%= event.location %></em>
                                     </li>
                                 </ul>
                         </div>
                     </div>
                 </div>
                 <div class="row event_line">
-                        <div class="col-md-6 col-lg-6 col-md-offset-3"><hr></div>
+                    <div class="col-md-6 col-lg-6 col-md-offset-3"><hr></div>
                 </div>
 
             <% end %>

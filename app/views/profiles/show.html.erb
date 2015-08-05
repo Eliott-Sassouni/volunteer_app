@@ -1,0 +1,11 @@
+<h1><%= @profile.full_name %></h1>
+<h3><%= @profile.user.email %></h3>
+
+<img src="<%= @profile.photo %>">
+
+<p><%= @profile.description %></p>
+
+<%= link_to 'back', profiles_path %>
+<% if @profile.user == current_user %>
+	| <%= link_to 'edit', edit_profile_path(@profile) %>
+<% end %>

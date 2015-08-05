@@ -1,46 +1,85 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div id="tf-contact" class="text-center">
+        <div class="container">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+                    <div class="section-title center">
+                        <h2>Edit<strong><%= resource_name.to_s.humanize %></strong></h2>
+                        <div class="line">
+                            <hr>
+                        </div>
+                        <div class="clearfix"></div>
+                        <small><em>Sign up below so that we could send you spam emails!</em></small>            
+                    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :full_name %><br />
-    <%= f.text_field :full_name, autofocus: true %>
-  </div>
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                    <%= devise_error_messages! %>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <%= f.label :email %><br />
+                                    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+                                </div>
+                            </div>
+                                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                                  <div>
+                                      Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+                                  </div>
+                                <% end %>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <%= f.label :current_password %> <i>(Enter Current)</i><br />
+                                    <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <%= f.label :password %> <i>(leave blank)</i><br />
+                                        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <%= f.label :password_confirmation %><br />
+                                        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+                                    </div>
+                                </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <%= f.label :organization, "Are you a volunteer or an organization?" %><br />
+                                    <%= f.select :organization, [['Volunteer', false], ['Organization', true]], class: "form-control" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <%= f.label :age %><br />
+                                    <%= f.text_field :age, autofocus: true, class: "form-control" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Message</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        
+                        <!-- <div class= "actions" -->
+                       <%= f.submit "Update", class: "btn tf-btn btn-default" %>
+                        <!-- </div> -->
+                        <% end %>
 
-  <div class="field">
-    <%= f.label :age %><br />
-    <%= f.text_field :age, autofocus: true %>
-  </div>
+                    <%= render "devise/shared/links" %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+                </div>
+            </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+        </div>
+    </div>
 
 <h3>Cancel my account</h3>
 

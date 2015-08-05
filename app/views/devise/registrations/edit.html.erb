@@ -66,6 +66,16 @@
                             <% end %>
                         </div>
                         <div class="row">
+                            <%= f.fields_for :profile do |profile_form| %>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <%= profile_form.label :photo, "Add a photo" %><br />
+                                        <%= profile_form.text_field :photo, autofocus: true, class: "form-control" %>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                        <div class="row">
                           <%= f.fields_for :profile do |profile_form| %>
                             <div class="col-md-12">
                                 <div class="form-group">

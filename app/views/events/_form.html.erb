@@ -1,27 +1,65 @@
-<% if @event.errors.present? %>
-  <% @event.errors.full_messages.each do |msg| %>
-    <p><%= msg %></p>
-  <% end %>
-<% end %>
+<div id="tf-contact" class="text-center">
+        <div class="container">
 
-<%= form_for @event do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </p>
-  <p>
-    <%= f.label :photo %><br>
-    <%= f.text_field :photo %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+
+                    <div class="section-title center">
+                        <h2>Add a<strong> New event</strong></h2>
+                        <div class="line">
+                            <hr>
+                        </div>
+                        <div class="clearfix"></div>
+                        <em>Enter information about the new event!</em>          
+                    </div>
+
+                    <div><% if @event.errors.present? %>
+                        <% @event.errors.full_messages.each do |msg| %>
+                            <p><%= msg %></p>
+                            <% end %>
+                            <% end %>
+                    </div>
+
+                    <%= form_for @event do |f| %>
+                    
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <%= f.label :name %><br />
+                                    <%= f.text_field :name, class: "form-control" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <%= f.label :description %><br />
+                                    <%= f.text_field :description, class: "form-control" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <%= f.label :location %><br />
+                                    <%= f.text_field :location, class: "form-control" %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <%= f.label :photo %><br />
+                                    <%= f.text_field :photo, class: "form-control" %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <%= f.submit "Add Event", class: "btn tf-btn btn-default" %><br />
+
+                        <!-- <button type="submit"> </button> -->
+                        <% end %>
+
+                        <%= link_to "Back", :back %>
+
+                </div>
+            </div>
+
+        </div>
+</div>

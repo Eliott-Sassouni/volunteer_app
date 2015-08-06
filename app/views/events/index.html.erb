@@ -1,18 +1,18 @@
 <head>
 <style type="text/css">
-.whatever {
+/*.whatever {
     background-color: #F6F6F6;
-/*   background: url('../img/032.jpg');*/
-}
+   background: url('../img/032.jpg');
+}*/
 .events_title {
     padding-top: 10%;
 
- /*   background: url('../img/03.jpg');*/
+/*    background: url('../img/03.jpg');*/
 
-    background-color: rgba(0,0,0,.1);
+    background-color: rgba(0,0,0,.7);
 }
 .event_background {
-    background-color: rgba(0,0,0,.1);
+    background-color: rgba(0,0,0,.7);
     height: 400px;
 }
 .event_page_title {
@@ -21,6 +21,8 @@
 }
 .events-page {
     background-color: #DDE0E0;
+   /*background-color: #343434;*/
+   
 }
 /*.event_info {
     margin: 
@@ -34,8 +36,7 @@
 <!-- <h1>Events:</h1>
 
 <h2> You made it to the index page </h2> -->
-
- <div id="tf-menachem" class="text-center whatever">
+ <div id="tf-clients" class="text-center whatever">
     <div class="overlay events-page">
         <div class="container events_title">
 
@@ -68,7 +69,7 @@
                     <div class="col-md-6 col-lg-6 event_info">
                         <div class="about-text">
                             <div class="section-title center event-title">
-                                <h4>Event</h4>
+                                <br /><h4>Event</h4>
                                 <h2><strong><%= link_to event.name, event_path(event) %></strong></h2>
                                 <div class="line center">
                                     <hr>

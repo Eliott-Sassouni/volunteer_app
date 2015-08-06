@@ -1,50 +1,57 @@
- <div id="tf-contact" class="text-center">
-	<div class="container">
+<div id="tf-clients" class="text-center whatever">
+   <div class="overlay events-page">
+       <div class="container events_title">
 
-	            <div class="row">
-	                <div class="col-md-8 col-md-offset-2">
+			 <div id="tf-contact" class="text-center">
+				<div class="container">
 
-	                    <div class="section-title center">
-	                        <h2><strong>Forgot your password?</strong></h2>
-	                        <div class="line">
-	                            <hr>
-	                        </div>
-	                        <div class="clearfix"></div>
-	                        <small><em>Enter your email address</em></small>            
-	                    </div>
-	                    
+				            <div class="row">
+				                <div class="col-md-8 col-md-offset-2">
 
-                    		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  							<%= devise_error_messages! %>
-                        	
-                        	<div class="row">
+				                    <div class="section-title center">
+				                        <h2><strong>Forgot your password?</strong></h2>
+				                        <div class="line">
+				                            <hr>
+				                        </div>
+				                        <div class="clearfix"></div>
+				                        <small><em>Enter your email address</em></small>            
+				                    </div>
+				                    
 
-	                            <div class="col-md-6">
-	                                <div class="form-group">
-	                                    <%= f.label :email %><br />
-	                                    <%= f.email_field :email, autofocus: true, class: "form-control" %>
-	                                </div>
-	                            </div>
+			                    		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+			  							<%= devise_error_messages! %>
+			                        	
+			                        	<div class="row">
 
-                                <div class="col-md-6">
-                               		<div class="form-group">
-                                    	<%= f.label :email_confirmation %><br />
-                                    	<%= f.email_field :email, autofocus: true, class: "form-control" %>
-                                	</div>
-                       			</div>
+				                            <div class="col-md-6">
+				                                <div class="form-group">
+				                                    <%= f.label :email %><br />
+				                                    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+				                                </div>
+				                            </div>
 
-                       		</div>
-	                            <!-- <div class="col-md-6"> -->
-	                				<button type="submit"<%= f.submit "Send me reset password instructions", class: "btn tf-btn btn-default" %>> </button>
-	                			<!-- </div> -->
-                        		<% end %>
-                        		
-                    	<div class="row"> <%= render "devise/shared/links" %> </div>
-                    	<div class="row"> <%= link_to 'Home', root_path %> </div>
+			                                <div class="col-md-6">
+			                               		<div class="form-group">
+			                                    	<%= f.label :email_confirmation %><br />
+			                                    	<%= f.email_field :email, autofocus: true, class: "form-control" %>
+			                                	</div>
+			                       			</div>
 
-	           		</div>
+			                       		</div>
+				                            <!-- <div class="col-md-6"> -->
+				                				<button type="submit"<%= f.submit "Send me reset password instructions", class: "btn tf-btn btn-default" %>> </button>
+				                			<!-- </div> -->
+			                        		<% end %>
+			                        		
+			                    	<div class="row"> <%= render "devise/shared/links" %> </div>
+			                    	<div class="row"> <%= link_to 'Home', root_path %> </div>
+
+				           		</div>
+							</div>
+
 				</div>
-
+			</div>
+		</div>
 	</div>
 </div>
 

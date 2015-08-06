@@ -1,99 +1,106 @@
-<div id="tf-contact" class="text-center">
-        <div class="container">
+<div id="tf-clients" class="text-center whatever">
+   <div class="overlay events-page">
+       <div class="container events_title">
 
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+        <div id="tf-contact" class="text-center">
+                <div class="container">
 
-                    <div class="section-title center">
-                        <h2>Edit<strong><%= resource_name.to_s.humanize %></strong></h2>
-                        <div class="line">
-                            <hr>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+
+                            <div class="section-title center">
+                                <h2>Edit<strong><%= resource_name.to_s.humanize %></strong></h2>
+                                <div class="line">
+                                    <hr>
+                                </div>
+                                <div class="clearfix"></div>
+                                <small><em>Sign up below so that we could send you spam emails!</em></small>            
+                            </div>
+
+
+                            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                            <%= devise_error_messages! %>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <%= f.label :email %><br />
+                                            <%= f.email_field :email, autofocus: true, class: "form-control" %>
+                                        </div>
+                                    </div>
+                                        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                                          <div>
+                                              Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+                                          </div>
+                                        <% end %>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <%= f.label :current_password %> <i>(Enter Current)</i><br />
+                                            <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <%= f.label :password %> <i>(leave blank)</i><br />
+                                                <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <%= f.label :password_confirmation %><br />
+                                                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+                                            </div>
+                                        </div>
+                                  </div>
+                                <%= f.fields_for :profile do |profile_form| %>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <%= profile_form.label :age %><br />
+                                                <%= profile_form.text_field :age, autofocus: true, class: "form-control" %>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <%= profile_form.label :full_name %><br />
+                                                <%= profile_form.text_field :full_name, autofocus: true, class: "form-control" %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <%= profile_form.label :photo, "Add a photo" %><br />
+                                                <%= profile_form.text_field :photo, autofocus: true, class: "form-control" %>
+                                            </div>
+                                        </div>                   
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <%= profile_form.label :description %><br />
+                                                <%= profile_form.text_area :description, autofocus: true, class: "form-control" %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% end %>
+                                
+                                <!-- <div class= "actions" -->
+                               <%= f.submit "Update", class: "btn tf-btn btn-default" %>
+                                <!-- </div> -->
+                                <% end %>
+                                <br />
+                                <%= link_to "Back", :back %>
+                               <!--  <h3>Cancel my account</h3> -->
+                               <br /><br />
+
+                                <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
                         </div>
-                        <div class="clearfix"></div>
-                        <small><em>Sign up below so that we could send you spam emails!</em></small>            
                     </div>
 
-
-                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-                    <%= devise_error_messages! %>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <%= f.label :email %><br />
-                                    <%= f.email_field :email, autofocus: true, class: "form-control" %>
-                                </div>
-                            </div>
-                                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                                  <div>
-                                      Currently waiting confirmation for: <%= resource.unconfirmed_email %>
-                                  </div>
-                                <% end %>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <%= f.label :current_password %> <i>(Enter Current)</i><br />
-                                    <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <%= f.label :password %> <i>(leave blank)</i><br />
-                                        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <%= f.label :password_confirmation %><br />
-                                        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-                                    </div>
-                                </div>
-                          </div>
-                        <%= f.fields_for :profile do |profile_form| %>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <%= profile_form.label :age %><br />
-                                        <%= profile_form.text_field :age, autofocus: true, class: "form-control" %>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <%= profile_form.label :full_name %><br />
-                                        <%= profile_form.text_field :full_name, autofocus: true, class: "form-control" %>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <%= profile_form.label :photo, "Add a photo" %><br />
-                                        <%= profile_form.text_field :photo, autofocus: true, class: "form-control" %>
-                                    </div>
-                                </div>                   
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <%= profile_form.label :description %><br />
-                                        <%= profile_form.text_area :description, autofocus: true, class: "form-control" %>
-                                    </div>
-                                </div>
-                            </div>
-                        <% end %>
-                        
-                        <!-- <div class= "actions" -->
-                       <%= f.submit "Update", class: "btn tf-btn btn-default" %>
-                        <!-- </div> -->
-                        <% end %>
-                        <br />
-                        <%= link_to "Back", :back %>
-                       <!--  <h3>Cancel my account</h3> -->
-                       <br /><br />
-
-                        <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
                 </div>
             </div>
-
         </div>
     </div>
+</div>

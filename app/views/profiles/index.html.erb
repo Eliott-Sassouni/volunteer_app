@@ -1,5 +1,17 @@
-<div id="tf-contact" class="text-center">
-        <div class="container">
+<style>
+
+/*.profile-background {
+    background-color: rgba(0,0,0,.7);
+    height: 600px;
+}*/
+
+</style>
+
+<div id="tf-clients" class="text-center whatever">
+   <div class="overlay events-page">
+       <div class="container events_title">
+<!-- <div id="tf-contact" class="text-center">
+        <div class="container"> -->
 
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
@@ -7,15 +19,19 @@
                     <div class="section-title center">
 						<h1>Meet the Organizations</h1><br /><br />
 
+						<div class="profile-background"
 						<% @profiles.each do |profile| %>
+
 							<% if profile.user.organization %>
 								<h2><%= link_to profile.full_name, profile_path(profile) %></h2><br />
 								<h4><%= profile.user.email %></h4><br />
 								<p><%= profile.description %></p><br />
 							<% end %>
 						<% end %>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 </div>

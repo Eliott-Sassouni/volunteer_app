@@ -2,13 +2,14 @@
 <style type="text/css">
 .whatever {
     background-color: #F6F6F6;
+/*   background: url('../img/032.jpg');*/
 }
 .events_title {
     padding-top: 10%;
 
-    background-color: rgba(0,0,0,.1);
+ /*   background: url('../img/03.jpg');*/
 
-    /*background: url('../img/03.jpg');*/
+    background-color: rgba(0,0,0,.1);
 }
 .event_background {
     background-color: rgba(0,0,0,.1);
@@ -17,6 +18,9 @@
 .event_page_title {
 
     font-size: 
+}
+.events-page {
+    background-color: #DDE0E0;
 }
 /*.event_info {
     margin: 
@@ -32,7 +36,7 @@
 <h2> You made it to the index page </h2> -->
 
  <div id="tf-menachem" class="text-center whatever">
-    <div class="overlay">
+    <div class="overlay events-page">
         <div class="container events_title">
 
             <div class="section-title center event-info">
@@ -44,7 +48,7 @@
                 <% end %>
                 <div class="line"><hr></div>
                 <div class="clearfix"></div>
-                <small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small> <br /><br />
+                <em>Below are all the RAK events happening nearby! Look through the list and find the one that fits you! Most events require no previous experience to volunteer. Join an event and partner with the organization of your choice to help make a difference.</em><br /><br />
             </div>
         </div>
         <div class="row event_line">
@@ -71,12 +75,12 @@
                                     </div>
                                 <div class="clearfix"></div>
                             </div>
-                                <p class="intro"><%= event.description %>We love building and rebuilding brands through our  specific skills. Using colour, fonts, and illustration, we brand companies in a way they will never forget.</p>
+                                <p class="intro"><%= event.description %></p>
                                 <ul class="about-list">
-                                    <li>
+                                    <!-- <li>
                                         <span class="fa fa-dot-circle-o"></span>
-                                        <strong>Description</strong> - <em><%= event.description %></em>
-                                    </li>
+                                        <strong>Description</strong> - <%= event.description %>
+                                    </li> -->
                                     <li>
                                         <span class="fa fa-dot-circle-o"></span>
                                         <strong>Organization</strong> - <em><%= link_to event.user.profile.full_name, profile_path(event.user.profile) %></em>

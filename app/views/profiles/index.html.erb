@@ -10,7 +10,7 @@
 						<% @profiles.each do |profile| %>
 							<% if profile.user.organization %>
 								<h2><%= link_to profile.full_name, profile_path(profile) %></h2><br />
-								<h2><%= profile.user.email %></h2><br />
+								<h4><%= profile.user.email %></h4><br />
 								<p><%= profile.description %></p><br />
 							<% end %>
 						<% end %>

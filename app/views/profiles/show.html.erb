@@ -14,6 +14,13 @@
 
 					<p><%= @profile.description %></p>
 
+					<h3>Events by this Organization:</h3>
+					<% @events.each do |event| %>
+						<%= link_to event.name, event_path(event) %><br>
+						<%= event.description %><br>
+						<%= event.location %><br>
+					<% end %>
+
 					<%= link_to 'All Organizations', profiles_path %>
 					<% if @profile.user == current_user %>
 						| <%= link_to 'edit', edit_user_registration_path %>

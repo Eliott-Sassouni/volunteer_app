@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 	before_action :verify_profile, :only => [:edit, :update, :destroy]
 	def index
-		@profiles = Profile.all.order(full_name: :desc)
+		@profiles = Profile.all.sort_by {|x| [x.full_name.upcase]}
 	end
 
 	def create
@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
 
 	def show
     	@profile = Profile.find(params[:id])
+    	@events = @profile.user.events
 	end
 
 	def edit

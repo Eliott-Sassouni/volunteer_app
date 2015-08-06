@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
 	end
 
 	private
-	def verify_organization
+	def verify_profile
 		if Profile.find(params[:id]).user != current_user
 			redirect_to profiles_path
 		end

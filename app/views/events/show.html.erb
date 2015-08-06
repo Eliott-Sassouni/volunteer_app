@@ -8,7 +8,7 @@
 
 					<h1><%= @event.name %></h1><br />
 					<h4> This event is coordinated by: </h4>
-					<h3><%= @event.user.profile.full_name %></h3><br />
+					<h3><%= link_to @event.user.profile.full_name, profile_path(@event.user.profile) %></h3><br />
 
 					<img src="<%= @event.photo %>"><br /><br />
 

@@ -14,9 +14,9 @@
 
 					<p><%= @profile.description %></p>
 
-					<%= link_to 'back', profiles_path %>
+					<%= link_to 'to all organizations', profiles_path %>
 					<% if @profile.user == current_user %>
-						| <%= link_to 'edit', edit_profile_path(@profile) %>
+						| <%= link_to 'edit', edit_user_registration_path %>
 					<% end %>
 
 					</div>

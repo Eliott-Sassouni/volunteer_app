@@ -1,32 +1,48 @@
-<h1><%= @event.name %></h1>
-<h3><%= @event.user.profile.full_name %></h3>
+<div id="tf-contact" class="text-center">
+	<div class="container">
 
-<img src="<%= @event.photo %>">
+	    <div class="row">
+	        <div class="col-md-8 col-md-offset-2">
 
-<p><%= @event.description %></p>
+	            <div class="section-title center">				
 
-<%= @event.location %>
+					<h1><%= @event.name %></h1><br />
+					<h4> This event is coordinated by: </h4>
+					<h3><%= @event.user.profile.full_name %></h3><br />
 
-<strong>Comment:</strong>
-<% @event.comments.each do |comment| %>
-	<p>
-    	<%= comment.comment %> | <%= comment.commenter %>
-    	<% if (current_user.profile.full_name == comment.commenter) || (current_user.id == @event.user_id) %>
-    		 | <%= link_to 'Delete', event_comment_path(@event, comment),
-	            method: :delete,
-	            data: { confirm: 'Are you sure?' } %>
-		<% end %>
-	</p>
-<% end %>
+					<img src="<%= @event.photo %>"><br /><br />
 
-<h2>Add a comment:</h2>
+					<h4> About this event: </h4>
+					<p><%= @event.description %></p><br />
 
-<%= render "comments/form" %>
+					<h4> Location of event: </h4>
+					<p><%= @event.location %></p><br /><br />
 
-<%= link_to 'back', events_path %>
-<% if @event.user == current_user %>
-	| <%= link_to 'edit', edit_event_path(@event) %>
-	| <%= link_to 'delete', event_path(@event),
-	            method: :delete,
-	            data: { confirm: 'Are you sure?' } %>
-<% end %>
+					<h2>Comments:</h2><br />
+					<% @event.comments.each do |comment| %>
+						<p>
+					    	<%= comment.comment %> | <%= comment.commenter %>
+					    	<% if (current_user.profile.full_name == comment.commenter) || (current_user.id == @event.user_id) %>
+					    		 | <%= link_to 'Delete', event_comment_path(@event, comment),
+						            method: :delete,
+						            data: { confirm: 'Are you sure?' } %>
+							<% end %>
+						</p>
+					<% end %>
+
+					<h2>Add a comment:</h2>
+
+					<%= render "comments/form" %>
+
+					<%= link_to 'back', events_path %>
+					<% if @event.user == current_user %>
+						| <%= link_to 'edit', edit_event_path(@event) %>
+						| <%= link_to 'delete', event_path(@event),
+						            method: :delete,
+						            data: { confirm: 'Are you sure?' } %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

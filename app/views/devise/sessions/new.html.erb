@@ -21,11 +21,13 @@
                                         <hr>
                                     </div>
                                     <div class="clearfix"></div>
-                                    <small><em>Sign in below so that we could send you spam emails!</em></small>            
+                                    <small><em>Sign in below to get on your way!</em></small>  
+
+                                <%= devise_error_messages! %>         
                                 </div>
 
                                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                                <%= devise_error_messages! %>
+                                
 
                                     <div class="row">
 
@@ -57,9 +59,13 @@
                                             <div class="col-md-10">
                                             </div>
                                         <% end -%>
-                                    </div>    
+                                      
                                     
-                                    <%= f.submit "Log in" %>
+                                    <button type="submit"<%= f.submit "Send me reset password instructions", class: "btn tf-btn btn-default" %>> </button>
+
+                                     </div> 
+
+                                    
                                     <% end %>
 
                                 <%= render "devise/shared/links" %>

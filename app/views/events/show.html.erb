@@ -1,5 +1,7 @@
-<div id="tf-contact" class="text-center">
-	<div class="container">
+<div id="tf-menachem" class="text-center whatever">
+	<div class="overlay events-page">
+<!-- <div id="tf-contact" class="text-center"> -->
+	<div class="container event-title">
 
 	    <div class="row">
 	        <div class="col-md-8 col-md-offset-2">
@@ -7,10 +9,10 @@
 	            <div class="section-title center">				
 
 					<h1><%= @event.name %></h1><br />
-					<h4> This event is coordinated by: </h4>
-					<h3><%= link_to @event.user.profile.full_name, profile_path(@event.user.profile) %></h3><br />
+					<h3> This event is coordinated by: </h3><br />
+					<h2><%= link_to @event.user.profile.full_name.upcase, profile_path(@event.user.profile) %></h2><br /><br />
 
-					<img src="<%= @event.photo %>"><br /><br />
+					<img src="<%= @event.photo %>", class="image-size"><br /><br />
 
 					<h4> About this event: </h4>
 					<p><%= @event.description %></p><br />
@@ -30,11 +32,12 @@
 						</p>
 					<% end %>
 
-					<h2>Add a comment:</h2>
+					<div class="comment-text"><h2>Add a comment:</h2></div>
 
-					<%= render "comments/form" %>
+					<div class="comment-color"><%= render "comments/form" %>
+					</div>
 
-					<%= link_to 'back', events_path %>
+					<%= link_to 'All Events', events_path %>
 					<% if @event.user == current_user %>
 						| <%= link_to 'edit', edit_event_path(@event) %>
 						| <%= link_to 'delete', event_path(@event),
